@@ -9,6 +9,7 @@
 
     <modules>
         <module>customer</module>
+        <module>fraud</module>
     </modules>
 
     <name>amigosservices</name>
@@ -22,11 +23,6 @@
         <spring.boot.maven.plugin.version>2.6.7</spring.boot.maven.plugin.version>
     </properties>
     <dependencies>
-        <dependency>
-            <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-starter-web</artifactId>
-        </dependency>
-
         <dependency>
             <groupId>org.projectlombok</groupId>
             <artifactId>lombok</artifactId>
