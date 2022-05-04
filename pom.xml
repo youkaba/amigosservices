@@ -10,6 +10,7 @@
     <modules>
         <module>customer</module>
         <module>fraud</module>
+        <module>euraka-server</module>
     </modules>
 
     <name>amigosservices</name>
