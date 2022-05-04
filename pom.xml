@@ -11,6 +11,7 @@
         <module>customer</module>
         <module>fraud</module>
         <module>euraka-server</module>
+        <module>clients</module>
     </modules>
 
     <name>amigosservices</name>
@@ -22,7 +23,7 @@
         <java.version>17</java.version>
         <spring.boot.version>2.6.7</spring.boot.version>
         <spring.boot.maven.plugin.version>2.6.7</spring.boot.maven.plugin.version>
-        <spring.cloud.version>2021.0.2</spring.cloud.version>
+        <spring.cloud.version>2021.0.1</spring.cloud.version>
     </properties>
     <dependencies>
         <dependency>
@@ -32,6 +33,10 @@
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-test</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework.cloud</groupId>
+            <artifactId>spring-cloud-starter-openfeign</artifactId>
         </dependency>
     </dependencies>
 
