@@ -12,13 +12,7 @@
     <artifactId>customer</artifactId>
 
     <name>customer</name>
-    <url>https://www.example.com</url>
-
-    <properties>
-        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-        <maven.compiler.source>17</maven.compiler.source>
-        <maven.compiler.target>17</maven.compiler.target>
-    </properties>
+    <packaging>jar</packaging>
 
     <dependencies>
         <dependency>
@@ -64,4 +58,12 @@
         </dependency>
     </dependencies>
 
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-maven-plugin</artifactId>
+            </plugin>
+        </plugins>
+    </build>
 </project>
