@@ -1,7 +1,7 @@
-package com.amigos.notification.controller;
+package com.amigoscode.notification.controller;
 
-import com.amigos.clients.notification.NotificationRequest;
-import com.amigos.notification.service.NotificationService;
+import com.amigoscode.clients.notification.NotificationRequest;
+import com.amigoscode.notification.service.NotificationService;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;

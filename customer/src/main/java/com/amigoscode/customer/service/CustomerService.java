@@ -1,19 +1,19 @@
 package com.amigoscode.customer.service;
 
-import com.amigos.clients.fraud.FraudCheckResponse;
-import com.amigos.clients.fraud.FraudClient;
-import com.amigos.clients.notification.NotificationClient;
-import com.amigos.clients.notification.NotificationRequest;
+import com.amigoscode.amqp.RabbitMQMessageProducer;
+import com.amigoscode.clients.fraud.FraudCheckResponse;
+import com.amigoscode.clients.fraud.FraudClient;
+import com.amigoscode.clients.notification.NotificationClient;
+import com.amigoscode.clients.notification.NotificationRequest;
 import com.amigoscode.customer.dto.CustomerRegistrationRequest;
 import com.amigoscode.customer.model.Customer;
 import com.amigoscode.customer.repository.CustomerRepository;
+import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
 @Service
-public record CustomerService(
-        CustomerRepository customerRepository,
-        FraudClient fraudClient,
-        NotificationClient notificationClient) {
+public record CustomerService(CustomerRepository customerRepository, FraudClient fraudClient,
+                              RabbitMQMessageProducer rabbitMQMessageProducer) {
     public void registerCustomer(CustomerRegistrationRequest request) {
         Customer customer = Customer.builder()
                 .firstName(request.firstName())
@@ -29,12 +29,14 @@ public record CustomerService(
         }
 
         // TODO send notification
-        notificationClient.sendNotification(
-                new NotificationRequest(customer.getId(),
-                        customer.getEmail(),
-                        String.format("Hi %s, welcome to amigos code...", customer.getLastName()),
-                        customer.getFirstName()
-                )
+        NotificationRequest notificationRequest = new NotificationRequest(customer.getId(),
+                customer.getEmail(),
+                String.format("Hi %s, welcome to amigos code...", customer.getLastName()),
+                customer.getFirstName()
         );
+        rabbitMQMessageProducer.publish(
+                notificationRequest,
+                "internal.exchange",
+                "internal.notification.routing-key");
     }
 }

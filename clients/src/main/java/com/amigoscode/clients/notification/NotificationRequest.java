@@ -1,4 +1,4 @@
-package com.amigos.clients.notification;
+package com.amigoscode.clients.notification;
 
 public record NotificationRequest(
         Integer toCustomerId,

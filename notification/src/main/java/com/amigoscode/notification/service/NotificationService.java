@@ -1,8 +1,8 @@
-package com.amigos.notification.service;
+package com.amigoscode.notification.service;
 
-import com.amigos.clients.notification.NotificationRequest;
-import com.amigos.notification.model.Notification;
-import com.amigos.notification.repository.NotificationRepository;
+import com.amigoscode.clients.notification.NotificationRequest;
+import com.amigoscode.notification.model.Notification;
+import com.amigoscode.notification.repository.NotificationRepository;
 import org.springframework.stereotype.Service;
 
 import static java.time.LocalDateTime.now;
